@@ -3,7 +3,7 @@ module Oxidized
   class NoConfig < OxidizedError; end
   class InvalidConfig < OxidizedError; end
   class Config
-    Root      = ENV['OXIDIZED_HOME']
+    Root      = ENV['OXIDIZED_HOME'] || File.join(ENV['HOME'], '.config', 'oxidized')
     Crash     = File.join(ENV['OXIDIZED_LOGS'] || Root, 'crash')
     Log       = File.join(ENV['OXIDIZED_LOGS'] || Root, 'logs')
     InputDir  = File.join Directory, %w[lib oxidized input]
